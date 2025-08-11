@@ -1,0 +1,1431 @@
+#event-listing-container {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.event-group {
+    margin-bottom: 30px;
+}
+
+.event-month-year {
+    font-size: 16px; 
+    font-weight: normal; 
+    margin: 0 0 32px; 
+    display: flex; 
+    align-items: center; 
+    color: #141827; 
+}
+
+.event-month-year::after {
+    content: ""; 
+    flex-grow: 1; 
+    height: 1px; 
+    background-color: #ccc; 
+    margin-left: 10px; 
+}
+
+.event-item {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    gap: 48px;
+}
+
+.event-date {
+    font-weight: 500;
+    color: #060606;
+    font-size: 14px;
+    display: flex;
+    justify-content: start;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.event-day {
+    font-size: 24px;
+    display: block;
+    color: #141827;
+}
+
+.event-weekday {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #5d5d5d;
+}
+
+.event-details {
+    flex-grow: 1;
+}
+
+.event-title {
+    /* text-align: center; */
+    font-size: 42px;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 8px;
+    color: #333;
+}
+
+.event-title a{
+    text-decoration: none!important;
+    color: #141827;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.event-time {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.event-location {
+    font-weight: 500;
+    color: #060606;
+    font-size: 14px;
+    display: flex;
+    justify-content: start;
+    gap: 12px;
+    align-items: center;
+}
+
+.event-location-venue {
+    margin-bottom: 16px;
+    font-size: 14px; 
+    color: #666; 
+}
+
+.event-venue,
+.event-location {
+    flex: 1; 
+}
+
+.event-venue {
+    margin-right: 10px; 
+    font-size: 14px;
+}
+.event-info p {
+    font-size: 14px;
+    font-weight: normal;
+    color: #181818;
+}
+  @media (max-width: 768px) {
+    .calendar-split-container {
+      flex-direction: column !important;
+      min-width: auto !important;
+    }
+  }
+.calendar-split-container a {
+    color: black;
+}
+
+/* Dropdown container styling */
+#date-picker-container {
+    display: flex;
+    max-width: 800px;
+    margin: auto;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#current-date-btn {
+    background-color: white;
+    color: #020202;
+    border: 1px solid #020202;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#current-date-btn:hover {
+    background-color: #0056b3;
+}
+
+.date-picker-container-div{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Dropdown styling */
+#date-dropdown {
+    position: relative;
+}
+
+#date-dropdown .dropdown-toggle {
+    cursor: pointer;
+    color: #181818;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+#date-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border: none!important;
+    border-radius: 4px;
+    box-shadow: 0px!important;
+    padding: 1rem;
+    min-width: 300px;
+}
+
+#date-dropdown .dropdown-menu.open {
+    display: block;
+}
+
+/* Event list styling */
+.event-item {
+    padding: 1rem;
+}
+
+.event-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.event-item .event-time {
+    color: #555;
+}
+
+.event-item .event-location-venue {
+    margin-top: 0.5rem;
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.event-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+
+/* Dropdown toggle styling for the selected date */
+#date-dropdown .dropdown-toggle {
+    cursor: pointer;
+    font-size: 20px; /* Larger font size without bold */
+}
+
+/* Ensure the strong tag inherits the parent styles */
+#date-dropdown .dropdown-toggle strong {
+    font-size: 20px; /* Match the font size of the parent */
+    font-weight: normal; /* No bold text */
+}
+
+/* Adjustments for dropdown menu */
+#date-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 1rem;
+    min-width: 300px;
+}
+
+#date-dropdown .dropdown-menu.open {
+    display: block;
+}
+
+
+
+
+
+
+/* SVG dropdown icon styling */
+#date-dropdown .dropdown-icon {
+    width: 16px;
+    height: 16px;
+    fill: #666; /* Set a visible color for the SVG */
+    transition: transform 0.3s ease; /* Smooth rotation */
+}
+
+/* Rotate the arrow when the menu is open */
+#date-dropdown.open .dropdown-icon {
+    transform: rotate(180deg); /* Rotate arrow */
+}
+
+/* Dropdown menu styling */
+#date-dropdown .dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: calc(100% + 5px); /* Position below the toggle */
+    left: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 1rem;
+    min-width: 300px;
+}
+
+/* Show the dropdown menu */
+#date-dropdown.open .dropdown-menu {
+    display: block;
+}
+
+
+
+
+
+.flatpickr-calendar.inline {
+    display: block;
+    position: relative;
+    top: 2px;
+    border: 0px solid black;
+    box-shadow: none;
+}
+
+
+
+.custom-event-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.event-date span {
+    display: block;
+}
+
+.event-details {
+    flex-grow: 1;
+}
+
+.event-details p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.event-details h3 {
+    margin: 0.25rem 0;
+}
+
+.event-details a {
+    text-decoration: none;
+    color: #333;
+}
+
+td.fc-list-event-graphic{
+    display: none;
+}
+
+
+.fc-list-event .fc-list-date {
+    text-decoration: none !important; /* Remove underline */
+}
+
+.fc-list-event .fc-list-date a {
+    text-decoration: none !important; /* Remove underline from links */
+    color: inherit; /* Optionally ensure the text color matches surrounding text */
+}
+
+.fc-list-event .fc-list-date a:hover {
+    text-decoration: none; /* Prevent underline on hover */
+}
+
+
+
+/* Remove underlines from weekday headers (e.g., SUN, MON) */
+.fc-daygrid-day-top a {
+    text-decoration: none !important; /* Remove underline from day numbers */
+    border-bottom: none !important; /* Remove any border styling */
+}
+
+/* Remove underlines from the dates in the calendar grid */
+.fc-daygrid-day-number a {
+    text-decoration: none !important; /* Remove underline */
+    border-bottom: none !important; /* Remove any borders */
+}
+
+/* Prevent underline on hover for both weekdays and dates */
+.fc-daygrid-day-top a:hover,
+.fc-daygrid-day-number a:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+
+/* Hide the "all-day" column in list view */
+td.fc-list-event-time {
+    display: none !important; /* Hides the "all-day" column */
+}
+
+.fc-list-day-cushion.fc-cell-shaded{
+    display: none;
+}
+
+.fc-list-day-cushion.fc-cell-shaded a{
+    text-decoration: none !important;
+}
+
+
+.fc-event-title-container{
+    background-color: white;
+}
+
+.fc-h-event .fc-event-title{
+    color: black;
+}
+
+.fc-event-main{
+    background-color: white;
+}
+
+.fc-h-event{
+    border: 1px solid #cfcfcf!important;
+}
+
+/* Prevent multi-day events from spanning multiple boxes */
+.fc-event {
+    display: block; /* Force single-block display */
+    width: 100% !important; /* Ensure event fits within one box */
+    margin: 0 auto; /* Center the event inside the box */
+    overflow: hidden; /* Prevent any text overflow */
+    white-space: normal; /* Allow text to wrap normally */
+}
+
+/* Additional fix for preventing stretched appearance */
+.fc-daygrid-event {
+    margin: 0.2rem 0; /* Add slight vertical spacing for better clarity */
+    text-overflow: ellipsis; /* Cut text if it's too long */
+}
+
+
+.fc-daygrid-event{
+    border-radius: 0px;
+    border: none;
+}
+
+.fc .fc-daygrid-event-harness{
+    margin-bottom: 12px;
+}
+
+.single-post:not(.elementor-page) .entry-content a:not(.wp-block-button__link):not(.wp-block-file__button), .page:not(.elementor-page):not(.woocommerce-page) .entry a:not(.wp-block-button__link):not(.wp-block-file__button){
+    border: none!important;
+    text-decoration: none!important;
+}
+
+
+.fc .fc-daygrid-day-top{
+    flex-direction: initial;
+}
+
+table.fc-col-header{
+    margin-bottom: 0px;
+}
+
+
+/* Default styling for larger screens */
+.fc .fc-toolbar-title {
+    font-size: 1.3rem; /* Default size */
+    text-align: center; /* Center align title */
+    font-weight: bold;
+}
+
+/* Adjust font size for tablets and smaller screens */
+@media only screen and (max-width: 768px) {
+    .fc .fc-toolbar-title {
+        font-size: 18px; /* Slightly smaller */
+    }
+}
+
+/* Adjust font size for mobile screens */
+@media only screen and (max-width: 480px) {
+    .fc .fc-toolbar-title {
+        font-size: 16px; /* Smaller font size for small mobile screens */
+        text-align: center; /* Ensure title stays centered */
+    }
+}
+
+
+/* Hide the Today button for screens smaller than 768px */
+@media only screen and (max-width: 768px) {
+    .fc .fc-today-button {
+        display: none !important;
+    }
+}
+
+
+.fc .fc-daygrid-day-top {
+    /* font-size: 24px; */
+    font-weight: 600;
+}
+
+/* Mobile styles (screens less than or equal to 768px) */
+@media screen and (max-width: 768px) {
+    .fc .fc-daygrid-day-top {
+        font-size: 16px !important;
+        font-weight: normal !important;
+    }
+}
+
+
+.single-post:not(.elementor-page) .entry-content a:not(.wp-block-button__link):not(.wp-block-file__button), .page:not(.elementor-page):not(.woocommerce-page) .entry a:not(.wp-block-button__link):not(.wp-block-file__button){
+    color: #323232;
+}
+
+button.fc-prev-button.fc-button.fc-button-primary{
+    background-color: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-top-right-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+    color: #373737;
+
+}
+
+button.fc-next-button.fc-button.fc-button-primary{
+    background-color: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-top-left-radius: 0px!important;
+    border-bottom-left-radius: 0px!important;
+    color: #373737;
+
+}
+
+
+#calendar-view  .fc .fc-button-primary:not(:disabled).fc-button-active:focus, .fc .fc-button-primary:not(:disabled):active:focus{
+box-shadow: none;
+}
+/* Style for the Prev button */
+button.fc-prev-button.fc-button.fc-button-primary:active,
+button.fc-prev-button.fc-button.fc-button-primary:hover,
+button.fc-prev-button.fc-button.fc-button-primary:focus {
+    background-color: #f1f1f1;
+    border: 1px solid #EAEAEA;
+    border-top-right-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+    color: #373737;
+    box-shadow: none;
+}
+
+/* Style for the Next button */
+button.fc-next-button.fc-button.fc-button-primary:active,
+button.fc-next-button.fc-button.fc-button-primary:hover,
+button.fc-next-button.fc-button.fc-button-primary:focus {
+    background-color: #f1f1f1;
+    border: 1px solid #EAEAEA;
+    border-top-left-radius: 0px!important;
+    border-bottom-left-radius: 0px!important;
+    color: #373737;
+    box-shadow: none;
+
+}
+
+
+.fc-direction-ltr .fc-toolbar > * > :not(:first-child){
+    text-transform: capitalize;
+    color: #000;
+    opacity: 1;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #DDDDDD;
+    padding: 6px 24px;
+    line-height: 12px;
+    font-size: 0.8rem;
+
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button:not(:last-child){
+    text-transform: capitalize;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button:not(:first-child){
+    text-transform: capitalize;
+}
+
+.fc .fc-view-harness-active > .fc-view{
+    border: none;
+}
+
+.fc .fc-list-day-cushion, .fc .fc-list-table td{
+    border: none;
+}
+.fc-timeGridWeek-view.fc-view.fc-timegrid .fc-col-header-cell-cushion {
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.fc-timeGridWeek-view.fc-view.fc-timegrid .fc .fc-timegrid-axis-cushion, .fc .fc-timegrid-slot-label-cushion {
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+ .fc-timegrid-axis-cushion {
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+    .fc-daygrid-event {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #event-details-container {
+        font-size: 14px;
+        background: #ffffff;
+        border: 1px solid #ffffff;
+        padding: 1rem;
+    }
+}
+
+
+/* Reset FullCalendar's Event Styling */
+.fc-event,
+.fc-daygrid-event {
+    width: auto !important; /* Remove forced 100% width */
+    margin: 0; /* Remove extra margins */
+    padding: 2px 4px; /* Add small padding for event clarity */
+    white-space: nowrap; /* Ensure text doesn't wrap unnecessarily */
+    overflow: hidden; /* Prevent overflow */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+}
+
+/* Ensure events fit correctly within their box */
+.fc-daygrid-event-harness {
+    margin-bottom: 6px !important; /* Space between events */
+    display: block; /* Allow proper rendering */
+}
+
+/* Fix stretched appearance for multi-day events */
+.fc-daygrid-block-event {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Remove unnecessary margin for mobile events */
+@media screen and (max-width: 768px) {
+    .fc-daygrid-event {
+        margin: 0 !important;
+        padding: 4px 2px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Fix overlap caused by specific event blocks */
+.fc-h-event {
+    border: none !important; /* Remove any custom borders */
+    border-radius: 0 !important; /* Optional: Remove rounded corners */
+}
+
+
+
+/* Fix for event positioning in month view */
+.fc-daygrid-event-harness {
+    position: relative !important; /* Override absolute positioning */
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 2px 0; /* Optional: Add small margin for spacing */
+    overflow: hidden; /* Prevent overflow */
+    width: calc(100% - 4px) !important; /* Fit events into container */
+    box-sizing: border-box; /* Include padding in width */
+    background-color: white;
+}
+
+
+a.fc-event.fc-event-start.fc-event-end.fc-event-future.fc-daygrid-event.fc-daygrid-block-event.fc-h-event{
+    background-color: white !important; /* White background */
+    padding: 0px !important; /* Remove padding */
+    text-align: left !important; /* Align text to the left */
+    justify-content: flex-start !important; /* Align content to the left (Flexbox alignment) */
+    display: flex !important; /* Ensure Flexbox is applied */
+    align-items: center !important; /* Vertically center content */
+    border: none !important; /* Optional: Remove border */
+    overflow: hidden !important; /* Prevent content overflow */
+    box-shadow: none !important; /* Optional: Remove any default shadows */
+
+}
+
+.fc-daygrid-day-bg {
+    z-index: 0 !important; /* Keep background layer at the lowest level */
+}
+
+.fc-daygrid-event-harness {
+    z-index: 1 !important; /* Ensure events are above the background */
+}
+.fc-daygrid-day {
+    position: relative !important; /* Maintain proper positioning */
+    overflow: hidden; /* Prevent content from spilling */
+    padding: 0px;
+}
+.fc-daygrid-event {
+    position: relative !important; /* Prevent misalignment */
+    width: 100% !important; /* Fit events within the cell */
+    left: 0 !important;
+    top: auto !important;
+    margin: 2px 0; /* Add spacing between multiple events */
+}
+
+
+/* Style the dots with #333 color and white background */
+.fc-daygrid-event-dot {
+    background-color: #333 !important; /* Dot color */
+    border: 2px solid white !important; /* White background */
+    border-radius: 50%; /* Ensure dots are circular */
+    width: 8px !important; /* Set dot size */
+    height: 8px !important; /* Set dot size */
+    display: inline-block; /* Ensure dots are inline */
+    margin: 2px auto; /* Center align the dots */
+}
+
+/* Remove any background from event blocks */
+/* Ensure all events align to the left */
+/* Remove white space caused by empty spacers */
+.fc-daygrid-day-events {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Compact the event container */
+.fc-daygrid-event-harness {
+    margin: 0 !important; /* Remove unnecessary margins */
+    padding: 0 !important; /* Remove padding */
+    line-height: 1.2 !important; /* Tighter line spacing */
+}
+
+/* Ensure events fit correctly */
+.fc-daygrid-event {
+    display: flex !important; /* Use flex to align content */
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+    margin: 2px 0 !important; /* Minimal margin between events */
+    height: auto !important;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Prevent overflow */
+    text-overflow: ellipsis; /* Clip long text */
+}
+
+/* Remove default bottom spacer */
+.fc-daygrid-day-bottom {
+    display: none !important; /* Hide extra containers */
+}
+
+
+/* Reduce event harness spacing */
+.fc-daygrid-event-harness {
+    margin-bottom: 2px !important; /* Reduce space between events */
+}
+
+/* Fix the overall grid appearance */
+.fc-daygrid-body {
+    height: auto !important; /* Allow content to dictate height */
+}
+
+
+a.fc-event.fc-daygrid-event.fc-daygrid-block-event.fc-h-event{
+    background-color: white;
+}
+
+.fc .fc-list-sticky .fc-list-day > *{
+    display: none;
+}
+
+/* Full-width event styling */
+.fc-list-event {
+    display: flex !important; /* Use flexbox for layout */
+    align-items: flex-start; /* Align content to the top */
+    width: 100% !important; /* Full-width events */
+    padding: 10px 0 !important; /* Vertical padding */
+    margin: 0 !important; /* Remove margins */
+    border: none !important; /* Remove borders */
+    background: none !important; /* Remove any background */
+}
+
+/* Date section styling (left side) */
+.fc-list-event .fc-list-event-time {
+    flex: 0 0 120px; /* Fixed width for the date section */
+    text-align: center; /* Align text to the left */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack weekday and date vertically */
+    justify-content: center; /* Center content */
+    font-size: 0.9rem; /* Smaller font size */
+    color: #555; /* Subtle text color */
+    font-weight: bold; /* Bold text for emphasis */
+    margin-right: 10px; /* Add spacing to the right */
+}
+
+/* Event details section (right side) */
+.fc-list-event .fc-list-item {
+    flex: 1; /* Take up remaining space */
+    text-align: left; /* Align event text to the left */
+    display: block; /* Ensure block layout */
+    padding: 0; /* Remove any padding */
+}
+
+/* Event title styling */
+.fc-list-event .fc-event-title {
+    font-size: .8rem; /* Slightly larger font for the title */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Darker text for visibility */
+    margin-bottom: 4px; /* Small spacing below the title */
+}
+
+/* Additional event details */
+.fc-list-event .fc-event-details {
+    font-size: 0.9rem; /* Adjust font size for details */
+    color: #666; /* Light gray for secondary info */
+    margin: 0; /* Remove margins */
+}
+
+/* Month-Year Heading: No hover effects */
+.fc-list-day-cushion {
+    width: 100%;
+    margin: 0 !important;
+    padding: 10px 0 !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    background: none !important;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Event Row: Full width and clean hover effect */
+.fc-list-event {
+    display: flex !important;
+    align-items: flex-start !important;
+    width: 100% !important; /* Make full width of container */
+    padding: 4px !important; /* Add padding for spacing */
+    margin: 0 !important;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    transition: background-color 0.2s ease; /* Smooth hover transition */
+}
+
+.fc-list-event:hover {
+    background-color: #ffffff !important; /* Light grey hover background */
+}
+
+/* Left Section: Date Styling */
+.fc-list-event-time {
+    flex: 0 0 80px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Right Section: Event Details */
+.fc-list-item {
+    flex: 1;
+    text-align: left;
+    display: block;
+}
+
+.fc-event-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0px;
+    line-height: normal;
+}
+
+.fc-event-details {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+
+/* Remove default link styling */
+.fc-list-event a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+/* Add hover effect for links */
+.fc-list-event:hover {
+    background-color: #ffffff !important;
+    cursor: pointer;
+}
+.fc .fc-list-event:hover td{
+    background-color: #ffffff !important;
+}
+
+
+
+
+
+
+
+
+
+div#event-calendar{
+    border: 1px solid #cfcfcf;
+    padding: 12px;
+    background: #f8f8f8;
+    max-width: 1200px;
+}
+.fc-view-harness.fc-view-harness-active{
+    background: #fff;
+}
+.fc {
+    position: relative;
+    z-index: 0;
+}
+
+
+
+
+
+
+/* Event modal specific styles */
+#eventModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 1, 1, 0.46);
+    z-index: 9999;
+    display: none;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    padding: 20px; /* Prevent content from touching screen edges */
+    box-sizing: border-box;
+}
+
+#eventModal.visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: visibility 0s 0s, opacity 0.3s ease-in-out;
+    min-width: -webkit-fill-available;
+}
+
+
+
+#modalImage {
+    width: 100%;
+    height: auto;
+    max-height: 60vh; /* Constrain image height to fit in modal */
+    display: block;
+    border-radius: 8px;
+    object-fit: contain;
+    max-height: 350px;
+    margin-top: 8px;
+}
+
+#modalTimeWrapper{
+    font-size: 14px;
+    font-weight: 500;
+    color: #1c1c1c;
+    margin: 0;
+}
+p#modalTime {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1c1c1c;
+}
+
+span#modalLocation{
+    font-size: 14px;
+    font-weight: 500;
+    color: #1c1c1c;
+}
+
+@keyframes eventModalAnimation {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #eventModal .bg-white {
+        max-width: 324px;
+    }
+    
+}
+
+
+
+#closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+#closeButton:hover {
+    color: #a50a14;
+}
+
+#modalEventUrl {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#modalEventUrl:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#modalEventUrl:active {
+    background-color: #003f7f;
+    transform: translateY(0);
+}
+
+#modalEventUrl:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
+}
+.ms-modal-bg{
+    background: #fff;
+    border-radius: 12px;
+    max-width: 400px;
+    top: 20%;
+    position: absolute;
+    padding: 30px;
+}
+@media screen and (max-width: 768px) {
+    .ms-modal-bg{
+      
+        max-width: 325px;
+     
+    }
+    
+}
+p#modalTime {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1c1c1c;
+    margin: 0;
+}
+h4#modalTitle {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3em;
+    padding: 0;
+    margin: 0 0 8px 0px;
+}
+div#event-calendar a{
+    color: #3d3d3d;
+}
+
+/* Align the navigation buttons and Today button side by side */
+.fc-header-toolbar .fc-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fc-header-toolbar .fc-button-prev,
+.fc-header-toolbar .fc-button-next,
+.fc-header-toolbar .fc-button-today {
+    margin-right: 10px; /* Adds space between the buttons */
+}
+
+/* Ensure they are side by side on large screens */
+@media (min-width: 768px) {
+    .fc-header-toolbar .fc-left {
+        flex-direction: row; /* Align buttons horizontally */
+    }
+}
+
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    /* Stack buttons vertically on small screens */
+    .fc-header-toolbar .fc-button-group {
+        /* flex-direction: column; */
+    }
+    
+    /* Reduce button size */
+    .fc-header-toolbar .fc-button {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    /* Optional: Add space between buttons */
+    .fc-header-toolbar .fc-button-group > .fc-button {
+        margin-bottom: 5px;
+    }
+    
+    /* Adjust the toolbar for better spacing */
+    .fc-header-toolbar {
+        padding: 10px 0;
+        margin-bottom: 0px!important;
+    }
+}
+/* Customize button labels for mobile */
+@media (max-width: 768px) {
+    .fc-header-toolbar .fc-button {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    .fc-button-prev, .fc-button-next, .fc-button-today {
+        padding: 4px 8px;
+    }
+
+    .fc-button-group {
+        justify-content: space-between;
+    }
+}
+/* FullCalendar container styles */
+#event-calendar {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{
+    min-height: 1.5em;
+    /* display: flex; */
+}
+.fc .fc-col-header-cell-cushion{
+    text-decoration: none;
+}
+.fc-tooltip {
+    opacity: 9999999 !important;
+    visibility: visible !important;
+}
+.fc-event {
+    cursor: pointer;
+}
+.fc-event:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+.fc .fc-scroller-liquid-absolute::-webkit-scrollbar {
+    display: none;
+}
+.fc .fc-scrollgrid-section-body table, .fc .fc-scrollgrid-section-footer table {
+    border-bottom-style: hidden;
+    padding-bottom: 0px!important;
+    margin-bottom: 0px!important;
+}
+
+#event-calendar .entry-content thead th,
+#event-calendar .entry-content tr th {
+    padding: 0px !important;
+}
+
+
+.fc-view-harness.fc-view-harness-active th{
+    padding: 0px;
+}
+.fc .fc-scrollgrid-section-liquid > td{
+    padding: 0px;
+}
+
+.fc-theme-standard td, .fc-theme-standard th {
+    padding: 0px!important;
+
+}
+table.fc-col-header {
+    margin-bottom: 0px!important;
+}
+
+
+.fc .fc-scrollgrid-section-sticky > *{
+    position: relative;
+}
+.fc .fc-scrollgrid {
+    border-bottom-width: 0px!important;
+    border-right-width: 0px!important;
+}
+
+.fc .fc-button{
+    font-size: 12px;
+}
+
+
+.fc-listMonth-view.fc-view.fc-list.fc-list-sticky {
+    max-height: 550px;
+    scroll-behavior: auto;
+    overflow: auto;
+}
+
+.fc-timeGridDay-view.fc-view.fc-timegrid{
+    max-height: 550px;
+    scroll-behavior: auto;
+    overflow: auto;
+}
+
+.fc-timeGridWeek-view.fc-view.fc-timegrid{
+    max-height: 550px;
+    scroll-behavior: auto;
+    overflow: auto;
+}
+
+/* Add this to your event-listing.css file */
+/* Styles for the fullscreen calendar modal */
+/* Styles for the fullscreen calendar */
+.calendar-container {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Improved button styles */
+.fc .fc-button {
+    padding: .4em .65em !important;
+    font-size: 0.9em !important;
+    border-radius: 4px !important;
+}
+
+.fc .fc-fullscreenToggle-button, 
+.fc .fc-printButton-button {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.fc .fc-fullscreenToggle-button:hover, 
+.fc .fc-printButton-button:hover {
+    background-color: #2c3e50;
+    border-color: #2c3e50;
+    color: #fff;
+}
+button.fc-today-button.fc-button.fc-button-primary:hover{
+    background-color: #f1f1f1;
+    border-color: #DDDDDD;
+    color: #0e0e0e;
+}
+
+/* Exit fullscreen button */
+.exit-fullscreen-btn {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+.exit-fullscreen-btn:hover {
+    background-color: #c82333 !important;
+    border-color: #bd2130 !important;
+}
+
+/* Fullscreen styles */
+.calendar-fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+    background-color: white !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    overflow: auto !important;
+}
+
+/* Print styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    #calendar-print-area, #calendar-print-area * {
+        visibility: visible;
+    }
+    
+    #calendar-print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    
+    .fc-event {
+        background-color: #f8f9fa !important;
+        border: 1px solid #dee2e6 !important;
+        color: #212529 !important;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+}
+
+
+.fc-toolbar-chunk {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    font-size: 12px;
+}
+
+
+
+
+
+/* List view item styles */
+.fc-list-item {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.fc-list-item-date {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+.fc-list-item-date-full {
+    font-weight: bold;
+}
+
+.fc-list-item-date-weekday {
+    font-weight: bold;
+}
+
+.fc-list-item-time-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.fc-list-item-time {
+    margin-right: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.fc-list-item-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Small blue dot */
+.fc-event-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: blue;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+
+/* List view event styles */
+.fc-list-event {
+    display: flex !important;
+    align-items: flex-start !important;
+    width: 100% !important; /* Ensure full width */
+    padding: 4px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+}
+
+.fc-list-event:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+.fc-list-event-title {
+    flex: 1; /* Ensure the title takes up remaining space */
+    margin-left: 8px; /* Add some space between the time and title */
+}
+
+.fc-list-event-time {
+    white-space: nowrap; /* Ensure the time is on one line */
+    margin-right: 8px; /* Add some space between the time and title */
+}
+
+#calendar-view .fc-button-group {
+    gap: 0px;
+}
+
+#calendar-view .fc-button-group button.fc-dayGridMonth-button.fc-button.fc-button-primary {
+    background-color: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-top-right-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+    color: #373737;
+}
+#calendar-view .fc-button-group button.fc-dayGridMonth-button.fc-button.fc-button-primary:active,
+#calendar-view .fc-button-group button.fc-dayGridMonth-button.fc-button.fc-button-primary:hover,
+#calendar-view .fc-button-group button.fc-dayGridMonth-button.fc-button.fc-button-primary:focus {
+    background-color: #F1F1F1;
+    color: #000;
+    box-shadow: none;
+}
+
+
+#calendar-view .fc-button-group button.fc-timeGridWeek-button.fc-button.fc-button-primary {
+    background-color: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-top-right-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+    border-top-left-radius: 0px!important;
+    border-bottom-left-radius: 0px!important;
+    color: #373737;
+}
+#calendar-view .fc-button-group button.fc-timeGridWeek-button.fc-button.fc-button-primary:active,
+#calendar-view .fc-button-group button.fc-timeGridWeek-button.fc-button.fc-button-primary:hover,
+#calendar-view .fc-button-group button.fc-timeGridWeek-button.fc-button.fc-button-primary:focus {
+    background-color: #F1F1F1;
+    color: #000;
+    box-shadow: none;
+}
+
+
+
+#calendar-view .fc-button-group button.fc-listMonth-button.fc-button.fc-button-primary {
+    background-color: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-top-left-radius: 0px!important;
+    border-bottom-left-radius: 0px!important;
+    color: #373737;
+}
+#calendar-view .fc-button-group button.fc-listMonth-button.fc-button.fc-button-primary:active,
+#calendar-view .fc-button-group button.fc-listMonth-button.fc-button.fc-button-primary:hover,
+#calendar-view .fc-button-group button.fc-listMonth-button.fc-button.fc-button-primary:focus {
+    background-color: #F1F1F1;
+    color: #000;
+    box-shadow: none;
+}
+
+
+
+.events-container {
+    height: 500px;
+    overflow-x: auto; /* This will add a horizontal scrollbar if needed */
+    scroll-behavior: initial;
+}
+
+.fc .fc-toolbar.fc-header-toolbar{
+    margin-bottom: 1rem;
+}
