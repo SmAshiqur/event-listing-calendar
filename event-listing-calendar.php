@@ -19,7 +19,7 @@ define('ELC_VERSION', '3.1');
 define('ELC_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('ELC_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
-require 'lib/plugin-update-checker/plugin-update-checker.php';
+require 'lib/plugin-update-checker-master/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $updateChecker = PucFactory::buildUpdateChecker(
