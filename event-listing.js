@@ -646,7 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listHeader.className = 'event-list-header';
         listHeader.innerHTML = 
             `<h3 style="margin-bottom: 0px; padding-bottom: 10px; padding-top: 0px; margin-top: 0px; border-bottom: 1px solid #ddd; position: sticky; top: 0; background: white; z-index: 10;">
-                Upcoming Events 1234
+                Upcoming Events
             </h3>`;
         eventListView.appendChild(listHeader);
     
@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
             noEvents.style.padding = '20px';
             noEvents.style.textAlign = 'center';
             noEvents.style.color = '#666';
-            noEvents.innerHTML = 'No upcoming events scheduled 666.';
+            noEvents.innerHTML = 'No upcoming events scheduled.';
             eventListView.appendChild(noEvents);
             return;
         }
