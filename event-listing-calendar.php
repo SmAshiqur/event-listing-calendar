@@ -3,74 +3,31 @@
 Plugin Name: Event Listing Calendar
 Plugin URI: https://masjidsolutions.net/
 Description: A plugin to display events in a calendar and list format using FullCalendar and Flatpickr.
-Version: 3.3
+Version: 3.2
 Author: MASJIDSOLUTIONS
 Author URI: https://masjidsolutions.net/
 License: GPL2
 GitHub Plugin URI: SmAshiqur/event-listing-calendar
 */
-
 if (!defined('ABSPATH')) {
     exit;
 }
-
-// Move use statement to top level, before any other code
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
 // Fixed version constant to match header
-define('ELC_VERSION', '3.3');
-define('ELC_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('ELC_PLUGIN_PATH', plugin_dir_path(__FILE__));
+define('ELC_VERSION', '3.1');
+define('ELC_PLUGIN_URL', plugin_dir_url(FILE));
+define('ELC_PLUGIN_PATH', plugin_dir_path(FILE));
+require 'lib/plugin-update-checker-master/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+$updateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/SmAshiqur/event-listing-calendar',
+    FILE,
+    'event-listing-calendar' 
+);
+// Set the branch (change to 'master' if that's your default branch)
+$updateChecker->setBranch('main');
+// Enable release assets if you plan to use GitHub releases
+$updateChecker->getVcsApi()->enableReleaseAssets();
 
-// Check if update checker library exists before requiring
-$update_checker_path = plugin_dir_path(__FILE__) . 'lib/plugin-update-checker-master/plugin-update-checker.php';
-
-if (file_exists($update_checker_path)) {
-    require_once $update_checker_path;
-
-    $updateChecker = PucFactory::buildUpdateChecker(
-        'https://github.com/SmAshiqur/event-listing-calendar',
-        __FILE__,
-        'event-listing-calendar' 
-    );
-
-    // Set the branch
-    $updateChecker->setBranch('main');
-
-    // Enable release assets
-    $updateChecker->getVcsApi()->enableReleaseAssets();
-
-    // Add file permission check and fix
-    add_filter('upgrader_pre_install', function($return, $plugin) {
-        if ($plugin['plugin'] === plugin_basename(__FILE__)) {
-            $plugin_dir = plugin_dir_path(__FILE__);
-            
-            // Try to make directory writable
-            if (is_dir($plugin_dir)) {
-                chmod($plugin_dir, 0755);
-                
-                // Make files writable
-                $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($plugin_dir));
-                foreach ($iterator as $file) {
-                    if ($file->isFile()) {
-                        chmod($file->getPathname(), 0644);
-                    } elseif ($file->isDir()) {
-                        chmod($file->getPathname(), 0755);
-                    }
-                }
-            }
-        }
-        return $return;
-    }, 10, 2);
-
-} else {
-    // Show admin notice if update checker is missing
-    add_action('admin_notices', function() {
-        if (current_user_can('manage_options')) {
-            echo '<div class="notice notice-warning"><p><strong>Event Listing Calendar:</strong> Update checker library not found. Automatic updates disabled.</p></div>';
-        }
-    });
-}
 
 
 // Enqueue scripts and styles
