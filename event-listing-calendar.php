@@ -3,7 +3,7 @@
 Plugin Name: Event Listing Calendar
 Plugin URI: https://masjidsolutions.net/
 Description: A plugin to display events in a calendar and list format using FullCalendar and Flatpickr.
-Version: 3.1
+Version: 3.2
 Author: MASJIDSOLUTIONS
 Author URI: https://masjidsolutions.net/
 License: GPL2
