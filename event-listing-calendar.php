@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Fixed version constant to match header
-define('ELC_VERSION', '3.1');
+define('ELC_VERSION', '3.2');
 define('ELC_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('ELC_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
